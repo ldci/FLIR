@@ -4,13 +4,14 @@ REBOL [
 ;--for all Flir images (320x240 or 640x480)
 
 ;--********************** Main Program *****************************
-do load %lib/rcvFlir.r3				;--Flir camera tools
-;fileName: do %tools/fileSelection.r3 
-fileName: "images/FLIR0042.jpg"
+do %lib/rcvFlir.r3					;--Flir camera module
+fileName: to-string request-file	;--get file as a string
+;fileName: "images/FLIR0042.jpg"
 thermal: load to-file fileName		;--IR source image
 rcvGetFlirMetaData fileName			;--get FLIR data
 scaleFactor: 4						;--EmbeddedImage is 4 larger than RawThermalImage
 imgRatio: round/floor (EmbeddedImageWidth / RawThermalImageWidth / scaleFactor) 
+if imgRatio = 0.0 [imgRatio: 1.0] ;--for image without PiP
 pipPos:  as-pair (PiPX1 + PiPX2) (PiPY1 + PiPY2)
 pipSize: as-pair (PiPX1 + PiPX2) * imgRatio (PiPY1 + PiPY2) * imgRatio
 if any 	[pipPos/x + pipSize/x > thermal/size/x pipPos/y + pipSize/y > thermal/size/y]

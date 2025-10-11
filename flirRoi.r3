@@ -2,16 +2,17 @@
 REBOL [
 ]
 cv: import opencv
-do load %lib/rcvFlir.r3				;--Flir camera tools
-;--********************** Main Program *****************************
+do %lib/rcvFlir.r3				;--Flir camera module
+;********************** Main Program *****************************
 
-;fileName: do %tools/fileSelection.r3	;--request file
-fileName: "images/FLIR0075.jpg"
+;fileName: "images/FLIR0075.jpg"
+fileName: to-string request-file		;--get file as a string
 thermal: load to-file fileName			;--IR source
 rcvGetFlirMetaData fileName				;--Flir data
 rcvGetVisibleImage fileName				;--IR RGB 
 rcvGetImageTemperatures fileName		;--get temperatures
 temperatures: getTemperatures tempimg	;--get temperatures 
+probe length? temperatures
 
 with cv [
 	mat: 		imread/with to-file filename 1
@@ -29,6 +30,7 @@ with cv [
 	;--now Roi temperatures
 	roiTemperature: copy []
 	line: r/1/y
+	print line
 	idx: to integer! ((line * width + r/1/x) / imgSize) * length? temperatures
 	j: 0
 	while [j < r/2/y][

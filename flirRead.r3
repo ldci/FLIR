@@ -3,12 +3,13 @@ Rebol [
 ]
 
 cv: import 'opencv			;--opencv R3 module
-do load %lib/rcvFlir.r3		;--Flir camera tools
+do %lib/rcvFlir.r3			;--Flir camera module
 
-;--********************** Main Program *****************************
+;********************** Main Program *****************************
 
-;fileName: do %tools/fileSelection.r3	;--request file with Zenity
-fileName: "images/RaspberryPi3.jpg"
+;fileName: "images/RaspberryPi3.jpg"
+;r3-3.20.1 we can use request-file
+fileName: to-string request-file		;--get file as a string
 rcvGetFlirMetaData fileName				;--Flir meta data
 rcvGetVisibleImage fileName				;--IR RGB 
 rcvGetImageTemperatures fileName		;--temperatures are stored in tempimg file
