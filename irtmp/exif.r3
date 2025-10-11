@@ -1,0 +1,78 @@
+REBOL [
+]
+SourceFile: "/Users/fjouen/Documents/GitHub/FLIR/images/FLIR0065.jpg"
+ImageTemperatureMax: 310
+ImageTemperatureMin: 299
+CreatorSoftware: ""
+Emissivity: 0.95
+ObjectDistance: "1.00 m"
+ReflectedApparentTemperature: "20.0 C"
+AtmosphericTemperature: "20.0 C"
+IRWindowTemperature: "20.0 C"
+IRWindowTransmission: 1.00
+RelativeHumidity: "50.0 %"
+PlanckR1: 12670.937
+PlanckB: 1350.1
+PlanckF: 1.65
+AtmosphericTransAlpha1: 0.006569
+AtmosphericTransAlpha2: 0.012620
+AtmosphericTransBeta1: -0.002276
+AtmosphericTransBeta2: -0.006670
+AtmosphericTransX: 1.900000
+CameraTemperatureRangeMax: "150.0 C"
+CameraTemperatureRangeMin: "-10.0 C"
+CameraTemperatureMaxClip: "180.0 C"
+CameraTemperatureMinClip: "-40.0 C"
+CameraTemperatureMaxWarn: "150.0 C"
+CameraTemperatureMinWarn: "-10.0 C"
+CameraTemperatureMaxSaturated: "180.0 C"
+CameraTemperatureMinSaturated: "-60.0 C"
+CameraModel: "FLIR C3"
+CameraPartNumber: "72003-0303"
+CameraSerialNumber: 720094379
+CameraSoftware: "34.0.0"
+LensModel: "FOL2"
+LensPartNumber: ""
+LensSerialNumber: ""
+FieldOfView: "41.0 deg"
+FilterModel: ""
+FilterPartNumber: ""
+FilterSerialNumber: ""
+PlanckO: -6235
+PlanckR2: 0.013203968
+RawValueRangeMin: 7943
+RawValueRangeMax: 59473
+RawValueMedian: 17748
+RawValueRange: 1672
+DateTimeOriginal: "2020:11:28 12:14:02.079-12:00"
+FocusStepCount: 90
+FocusDistance: "0.0 m"
+FrameRate: 9
+PaletteColors: 224
+AboveColor: "170 128 128"
+BelowColor: "50 128 128"
+OverflowColor: "67 216 98"
+UnderflowColor: "41 110 240"
+Isotherm1Color: "100 128 128"
+Isotherm2Color: "100 110 240"
+PaletteMethod: 0
+PaletteStretch: 2
+PaletteFileName: "\\FlashBFS\\system\\iron.pal"
+PaletteName: "Iron"
+Palette: "(Binary data 672 bytes use -b option to extract)"
+RawThermalImageWidth: 80
+RawThermalImageHeight: 60
+RawThermalImageType: "PNG"
+RawThermalImage: "(Binary data 5853 bytes use -b option to extract)"
+Real2IR: 1.38126635551453
+OffsetX: -25
+OffsetY: "+4"
+PiPX1: 0
+PiPX2: 80
+PiPY1: 0
+PiPY2: 60
+EmbeddedImageWidth: 640
+EmbeddedImageHeight: 480
+EmbeddedImageType: "JPG"
+EmbeddedImage: "(Binary data 37224 bytes use -b option to extract)"
+PeakSpectralSensitivity: "10.7 um"
