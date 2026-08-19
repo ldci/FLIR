@@ -16,7 +16,6 @@ This module uses two external programs :
 
 For Rebol3 users, you need OpenCV extension to play with images. [https://github.com/Oldes/Rebol-OpenCV]()
 
-**The REDCV MODULE**
+**RED**
 
-For Red users, please use RedCV library. [https://github.com/ldci/redCV
-](https://github.com/ldci/redCV)
+For Red users, just include lib/rcvFlir.red in your code.
