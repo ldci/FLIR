@@ -5,15 +5,12 @@ Red [
 	File: 	 %flirRead.red
 	needs:   view
 ]
-
 ;--basic FLIR Images reading
 ; required libs
 #include %lib/rcvFlir.red			;--Flir camera module
-
-
 flirFile: 	none
 isSorted?: 	false
-isFile?: false
+isFile?: 	false
 
 loadImage: does [
 	tmp: request-file 
@@ -62,7 +59,7 @@ view layout [
 	canvas0: base 215x22
 	cb1: check 150 "Sort Temperatures" false [isSorted?: face/data]
 	button 150 "Show Temperatures" [ImageTemperatures]
-	pad 25x0
+	pad 22x0
 	button "Quit" 	[if isfile? [rcvCleanThermal] quit]
 	return
 	canvas1: base 320x240				;--IR image
@@ -70,13 +67,12 @@ view layout [
 	canvas3: base 320x240				;--Raw image
 	tempList: text-list 100x240 data []	;--temperatures list
 	return
-	t: text 220 "FLIR Image "
-	f0: field 90x21 center
-	text 220 "Visible Embedded Image " f1: field 90x21 center
-	text 220 "Grayscale Temperature Image" f2: field 90x21 center
-	text 100 "Temperatures"
+	t: text 220 "FLIR Image " middle f0: field 90x21 center
+	text 220 "Visible Embedded Image " middle f1: field 90x21 center
+	text 220 "Grayscale Temperature Image" middle f2: field 90x21 center
+	text 100 "Temperatures" 
 	return
-	text "Date" f3: field 230
+	text "Date" middle f3: field 230
 ]
 
 

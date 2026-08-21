@@ -23,7 +23,6 @@ rcvGetFlirMetaData: func [
 "Get all Flir file metadata values as Red/Rebol words"
 	fileName	[string!]	;--original Flir image
 ][
-	;tmpDir: to-file rejoin [first split-path to-file filename "irtmp/"]
 	tmpDir: %irtmp/
 	if not exists? tmpDir [make-dir tmpDir]
 	exifFile: to-file rejoin [tmpDir "exif.txt"]
@@ -70,7 +69,6 @@ rcvGetVisibleImage: function [
 	]
 	rgb
 ]
-
 
 
 rcvGetFlirRawData: function [
