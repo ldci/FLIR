@@ -67,9 +67,9 @@ view layout [
 	canvas3: base 320x240				;--Raw image
 	tempList: text-list 100x240 data []	;--temperatures list
 	return
-	t: text 220 "FLIR Image " middle f0: field 90x21 center
-	text 220 "Visible Embedded Image " middle f1: field 90x21 center
-	text 220 "Grayscale Temperature Image" middle f2: field 90x21 center
+	text 220 middle "FLIR Image " middle f0: field 90x21 center
+	text 220 middle "Visible Embedded Image " middle f1: field 90x21 center
+	text 220 middle "Grayscale Temperature Image" middle f2: field 90x21 center
 	text 100 "Temperatures" 
 	return
 	text "Date" middle f3: field 230
