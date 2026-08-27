@@ -6,16 +6,16 @@ Red [
 	needs:   view
 ]
 ;--basic FLIR Images reading
-; required libs
+; required lib
 #include %lib/rcvFlir.red			;--Flir camera module
 flirFile: 	none
 isSorted?: 	false
 isFile?: 	false
 
 loadImage: does [
-	tmp: request-file 
+	flirFile: request-file 
 	isFile?: false
-	unless none? tmp [
+	unless none? flirFile [
 		clear tempList/data
 		clear f0/text
 		clear f1/text
@@ -24,18 +24,17 @@ loadImage: does [
 		canvas1/image: canvas2/image: none
 		canvas3/image: canvas0/image: none
 		do-events/no-wait
-		flirFile: to-string tmp	
-		rcvGetFlirMetaData flirFile 		
-		canvas1/image: load tmp
+		meta: rcvGetFlirMetaData flirFile 		
+		canvas1/image: load flirFile
 		attempt [canvas0/image: load rcvGetFlirPalette flirFile]
 		attempt [canvas2/image: load rcvGetVisibleImage flirFile]
 		attempt [canvas3/image: load rcvGetImageTemperatures flirFile]
-		b/text: CameraModel
-		b2/text: PaletteName
+		b/text: meta/camera-model
+		b2/text: meta/palette-name
 		f0/text: form canvas1/image/size
 		f1/text: form canvas2/image/size
 		f2/text: form canvas3/image/size
-		f3/text: DateTimeOriginal
+		f3/text: meta/date-time-original
 		isFile?: true
 	]
 ]
@@ -60,7 +59,8 @@ view layout [
 	cb1: check 150 "Sort Temperatures" false [isSorted?: face/data]
 	button 150 "Show Temperatures" [ImageTemperatures]
 	pad 22x0
-	button "Quit" 	[if isfile? [rcvCleanThermal] quit]
+	;button "Quit" 	[if isfile? [rcvCleanThermal] quit]
+	button "Quit" [quit]
 	return
 	canvas1: base 320x240				;--IR image
 	canvas2: base 320x240				;--RGB image
