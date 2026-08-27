@@ -165,7 +165,7 @@ rcvGetImageTemperatures: function [
 	fileName	[file!]
 	return:		[image!]
 ][
-	;rcvGetFlirRawData fileName		;--we need raw data done before
+	rcvGetFlirRawData fileName		;--mandatory
 	rcvGetPlanckValues				;--and Planck's constants
 	;convert every rawimg-16-Bit pixel with Planck law to a temperature grayscale value
 	;--Planck Law
@@ -241,6 +241,6 @@ rcvCleanThermal: does [
 	if exists? to-red-file palimg 		[delete to-file palimg]
 	if exists? to-red-file rawimg 		[delete to-file rawimg]
 	if exists? to-red-file tempimg 		[delete to-file tempimg]
-	if exists? to-red-file tmpDir 		[delete to-file tmpDir]
+	if exists? tmpDir 					[delete tmpDir]
 ]
 
